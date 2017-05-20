@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject enemy; // The enemy prefab to be spawned.
 
-    public GameObject enemy;                // The enemy prefab to be spawned.
-    public float spawnTime = 3f;            // How long between each spawn.
+    [SerializeField]
+    private float spawnTime = 3f;// How long between each spawn.            
+                                 
+    [SerializeField]
+    private float radius = 10.0f;
+
     //public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 
-    // Use this for initialization
     void Start()
     {
         InvokeRepeating("Spawn", spawnTime, spawnTime);
@@ -18,7 +23,7 @@ public class EnemyManager : MonoBehaviour
     void Spawn()
     {
 
-        Instantiate(enemy, Random.insideUnitCircle*10, Quaternion.identity);
+        Instantiate(enemy, Random.insideUnitCircle * radius, Quaternion.identity);
 
         // Find a random index between zero and one less than the number of spawn points.
         //int spawnPointIndex = Random.Range(0, spawnPoints.Length);

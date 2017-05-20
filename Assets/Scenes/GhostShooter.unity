@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1723773804}
   spawnTime: 3
+  radius: 10
 --- !u!4 &217133191
 Transform:
   m_ObjectHideFlags: 0
