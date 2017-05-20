@@ -29,4 +29,7 @@ public class Player : MonoBehaviour {
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }
+
+    public float getHP() { return HP; }
+    public float getDamage() { return damage; }
 }
