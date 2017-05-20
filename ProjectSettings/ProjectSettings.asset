@@ -462,9 +462,9 @@ PlayerSettings:
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
-  cloudProjectId: 0b53bff7-1a5c-4034-aebf-b0295cabd168
-  projectName: GhostShooter
-  organizationId: piotrek722
+  cloudProjectId: ecc9e97b-fe9e-4e7f-9551-d8b1be1ee75b
+  projectName: GhostShooter (1)
+  organizationId: kijakshia
   cloudEnabled: 0
