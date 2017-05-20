@@ -23,7 +23,9 @@ public class EnemyManager : MonoBehaviour
     void Spawn()
     {
 
-        Instantiate(enemy, Random.insideUnitCircle * radius, Quaternion.identity);
+        Vector3 spawnArea = Random.insideUnitSphere;
+        spawnArea.y = 0;
+        Instantiate(enemy, spawnArea * radius, Quaternion.identity);
 
         // Find a random index between zero and one less than the number of spawn points.
         //int spawnPointIndex = Random.Range(0, spawnPoints.Length);
