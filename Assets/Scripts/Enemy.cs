@@ -1,10 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿namespace TGK.Project
+{
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+    public class Enemy : MonoBehaviour
+    {
 
-    [SerializeField]
-    private float HP = 10;
+        #region Inspector Variables
+        [SerializeField] private float Radius = 1.0f;
+        [SerializeField] private float Damage = 1.0f;
+        [SerializeField] private float HP = 10;
+        #endregion Inspector Variables
 
+        #region Unity Messages
+        private void Update()
+        {
+            // Create Damage message
+            var message = new Messages.Damage()
+            {
+                // Set data
+                Value = Damage * Time.deltaTime
+            };
+
+            //Debug.Log("Enemy sends damage");
+
+            // Find objects to notify
+            var objects = Utility.OverlapSphere(transform.position, Radius);
+            // Send to nearby objects
+            MessageDispatcher.Send(message, objects);
+        }
+
+        private void OnDrawGizmos()
+        {
+            // Draw damage inflicting zone
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, Radius);
+        }
+        #endregion Unity Messages
+
+    }
 }
