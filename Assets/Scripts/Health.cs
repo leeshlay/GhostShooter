@@ -10,7 +10,7 @@
     {
         #region Inspector Variables
         // The component to send messages to
-        [SerializeField] private Component _Receiver;
+        [SerializeField] private GameObject _Receiver;
         [SerializeField] private float _Health;
         #endregion Inspector Variables
 

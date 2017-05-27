@@ -1,19 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿namespace TGK.Project
+{
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
 
-public class CameraController : MonoBehaviour {
+    public class CameraController : MonoBehaviour
+    {
 
-    [SerializeField]
-    private GameObject player;
+        [SerializeField]
+        private GameObject player;
 
-    private Vector3 offsetFromPlayer;
+        private Vector3 offsetFromPlayer;
 
-	void Start () {
-        offsetFromPlayer = transform.position - player.transform.position;
-	}
-	
-	void LateUpdate () {
-        transform.position = player.transform.position + offsetFromPlayer;
-	}
+        void Start()
+        {
+            offsetFromPlayer = transform.position - player.transform.position;
+        }
+
+        void LateUpdate()
+        {
+            transform.position = player.transform.position + offsetFromPlayer;
+        }
+    }
 }

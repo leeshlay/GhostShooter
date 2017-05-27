@@ -53,12 +53,5 @@
         }
         #endregion Unity Messages
 
-        #region Messages
-        private void OnDeath(Messages.HealthDepleated message)
-        {
-            // Destroy itself
-            Debug.Log("Dieded :<");
-        }
-        #endregion Messages
     }
 }
