@@ -51,6 +51,15 @@
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, _Radius);
         }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Pick"))
+            {
+                Debug.Log("bonuc collected");
+                other.gameObject.SetActive(false);
+            }
+        }
         #endregion Unity Messages
 
     }
