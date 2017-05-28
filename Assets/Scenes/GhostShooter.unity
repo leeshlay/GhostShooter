@@ -182,6 +182,56 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 195720285306823338, guid: 1393d861e7e34af49b34ffda161ca33e,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 195720285306823338, guid: 1393d861e7e34af49b34ffda161ca33e,
+        type: 2}
+      propertyPath: m_Height
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 54734002917005976, guid: 1393d861e7e34af49b34ffda161ca33e,
+        type: 2}
+      propertyPath: m_Drag
+      value: Infinity
+      objectReference: {fileID: 0}
+    - target: {fileID: 54734002917005976, guid: 1393d861e7e34af49b34ffda161ca33e,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: Infinity
+      objectReference: {fileID: 0}
+    - target: {fileID: 135101089864872062, guid: 1393d861e7e34af49b34ffda161ca33e,
+        type: 2}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114937969602433600, guid: 1393d861e7e34af49b34ffda161ca33e,
+        type: 2}
+      propertyPath: Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135101089864872062, guid: 1393d861e7e34af49b34ffda161ca33e,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54734002917005976, guid: 1393d861e7e34af49b34ffda161ca33e,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 195720285306823338, guid: 1393d861e7e34af49b34ffda161ca33e,
+        type: 2}
+      propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135101089864872062, guid: 1393d861e7e34af49b34ffda161ca33e,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1393d861e7e34af49b34ffda161ca33e, type: 2}
   m_IsPrefabParent: 0

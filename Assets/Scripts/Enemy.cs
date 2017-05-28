@@ -13,7 +13,7 @@
         [SerializeField] private float HP = 10;
         #endregion Inspector Variables
 
-        public Animation animation;
+        private Animation animation;
 
         void Start()
         {
@@ -45,11 +45,11 @@
             Gizmos.DrawWireSphere(transform.position, Radius);
         }
 
-        private void OnControllerColliderHit(Collision collision)
+        private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.tag == "Player")
             {
-                Debug.Log("Attack");
+                //Debug.Log("Attack");
                 animation.Play("Attack");
             }
         }
