@@ -12,5 +12,13 @@
 
         public class HealthDepleated { }
         #endregion Health
+
+        #region Bonus
+        public class HealthBonus
+        {
+            public int Value;
+        }
+
+        #endregion Bonus
     }
 }

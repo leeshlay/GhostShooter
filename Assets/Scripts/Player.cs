@@ -56,8 +56,21 @@
         {
             if (other.gameObject.CompareTag("Pick"))
             {
-                Debug.Log("bonuc collected");
-                other.gameObject.SetActive(false);
+                GameObject bonus = other.gameObject;
+                Debug.Log("bonus collected");
+                bonus.SetActive(false);
+
+                //generate bonus message
+                var message = new Messages.HealthBonus()
+                {
+                    // Set data
+                    Value = 10
+                };
+                Debug.Log("sending health message " + message.Value);
+                //MessageDispatcher.Send(message, );
+
+                Destroy(bonus);
+                
             }
         }
         #endregion Unity Messages

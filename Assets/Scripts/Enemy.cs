@@ -13,6 +13,13 @@
         [SerializeField] private float HP = 10;
         #endregion Inspector Variables
 
+        public Animation animation;
+
+        void Start()
+        {
+            animation = GetComponent<Animation>();
+        }
+
         #region Unity Messages
         private void Update()
         {
@@ -37,6 +44,25 @@
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, Radius);
         }
+
+        private void OnControllerColliderHit(Collision collision)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                Debug.Log("Attack");
+                animation.Play("Attack");
+            }
+        }
+
+        /*private void OnCollisionExit(Collision collision)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                Debug.Log("Walk");
+                animation.CrossFade("Walk");
+            }
+        }*/
+
         #endregion Unity Messages
 
     }

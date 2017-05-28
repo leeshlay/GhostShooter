@@ -31,6 +31,13 @@
                 MessageDispatcher.Send(new Messages.HealthDepleated(), _Receiver);
             }
         }
+
+        private void Bonus(Messages.HealthBonus message)
+        {
+            Debug.Log(message.Value);
+            _Health += message.Value;
+        }
+
         #endregion Private Methods
 
         public float getHealth() { return _Health; }
