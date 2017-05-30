@@ -27,9 +27,23 @@
             // If the health reaches 0
             if (_Health <= 0.0f)
             {
+
+                //play death animation
+                var animation = gameObject.GetComponent<Animation>();
+                animation.Play("Death1");
+
                 // Notify listeners that we are dead
                 MessageDispatcher.Send(new Messages.HealthDepleated(), _Receiver);
+
+                //destroy
+                Invoke("Die", 2.4f);
+
             }
+        }
+
+        private void Die()
+        {
+            gameObject.SetActive(false);
         }
 
         private void Bonus(Messages.HealthBonus message)

@@ -23,7 +23,15 @@
         private Vector3 moveDirection = Vector3.zero;
         private float gravity = 10.0f;
 
+        private Animation animation;
+
         #endregion Inspector Variables
+
+        private void Start()
+        {
+            animation = GetComponent<Animation> ();
+            animation.Play("Idle1");
+        }
 
         void Update()
         {
@@ -38,6 +46,16 @@
             }
             moveDirection.y -= gravity * Time.deltaTime;
             controller.Move(moveDirection * Time.deltaTime);
+
+            //animation for moving
+            if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+            {
+                animation.Play("Walk");
+            }
+            else if(Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d"))
+            {
+                animation.Play("Idle1");
+            }
         }
 
         //public float getHP() { return HP; }
