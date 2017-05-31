@@ -33,7 +33,8 @@
                 animation.Play("Death1");
 
                 // Notify listeners that we are dead
-                MessageDispatcher.Send(new Messages.HealthDepleated(), _Receiver);
+               // MessageDispatcher.Send(new Messages.HealthDepleated(), _Receiver);
+                MessageDispatcher.Send(new Messages.HealthDepleated(), gameObject);
 
                 //destroy
                 Invoke("Die", 2.4f);

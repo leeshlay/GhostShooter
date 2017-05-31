@@ -24,6 +24,9 @@
         private float gravity = 10.0f;
 
         private Animation animation;
+        private CharacterController controller;
+
+        private bool isDead = false;
 
         #endregion Inspector Variables
 
@@ -31,31 +34,52 @@
         {
             animation = GetComponent<Animation> ();
             animation.Play("Idle1");
+            controller = GetComponent<CharacterController>();
         }
 
         void Update()
         {
-            CharacterController controller = GetComponent<CharacterController>();
-            if (controller.isGrounded)
+            if (isDead)
             {
-                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-               // moveDirection = transform.TransformDirection(moveDirection);
-                moveDirection *= speed;
-                // if (Input.GetButton("Jump"))
-                //    moveDirection.y = jumpSpeed;
+                controller.enabled = false;
+                animation.Play("Death1");
+                Invoke("Die", 2.4f);
             }
-            moveDirection.y -= gravity * Time.deltaTime;
-            controller.Move(moveDirection * Time.deltaTime);
+            else
+            {
+                //CharacterController controller = GetComponent<CharacterController>();
+                if (controller.isGrounded)
+                {
+                    moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                    // moveDirection = transform.TransformDirection(moveDirection);
+                    moveDirection *= speed;
+                    // if (Input.GetButton("Jump"))
+                    //    moveDirection.y = jumpSpeed;
+                }
+                moveDirection.y -= gravity * Time.deltaTime;
+                controller.Move(moveDirection * Time.deltaTime);
 
-            //animation for moving
-            if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
-            {
-                animation.Play("Walk");
+                //animation for moving
+                if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+                {
+                    animation.Play("Walk");
+                }
+                else if (Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d"))
+                {
+                    animation.Play("Idle1");
+                }
             }
-            else if(Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d"))
-            {
-                animation.Play("Idle1");
-            }
+        }
+
+        private void Die()
+        {
+            gameObject.SetActive(false);
+        }
+
+        private void Death(Messages.HealthDepleated message)
+        {
+            Debug.Log("player dies");
+            isDead = true;
         }
 
         //public float getHP() { return HP; }
