@@ -12,7 +12,7 @@
         [SerializeField]
         private float _Radius = 1.0f;
         [SerializeField]
-        private float damage = 10;
+        private float damage = 10.0f;
 
         //[SerializeField]
         //private float HP = 100;
@@ -62,14 +62,6 @@
         public float getDamage() { return damage; }
 
         #region Unity Messages
-
-        private void OnDrawGizmos()
-        {
-            // Draw Action message send radius
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, _Radius);
-        }
-
         void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Pick"))
@@ -79,16 +71,11 @@
                 bonus.SetActive(false);
 
                 //generate bonus message
-                var message = new Messages.HealthBonus()
-                {
-                    // Set data
-                    Value = 10
-                };
+                var message = new Messages.HealthBonus(10);
                 Debug.Log("sending health message " + message.Value);
                 //MessageDispatcher.Send(message, );
 
                 Destroy(bonus);
-                
             }
         }
         #endregion Unity Messages

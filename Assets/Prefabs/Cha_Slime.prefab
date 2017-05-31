@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 114937969602433600}
   m_Layer: 0
   m_Name: Cha_Slime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,7 +247,6 @@ MonoBehaviour:
   Radius: 0.7
   Damage: 1
   HP: 10
-  animation: {fileID: 0}
 --- !u!135 &135101089864872062
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -255,7 +254,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945089666092040}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.7

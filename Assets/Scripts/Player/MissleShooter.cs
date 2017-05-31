@@ -16,10 +16,13 @@ public class MissleShooter : MonoBehaviour {
 
     public void Shoot(Vector3 shootDirection) {
 
+        Vector3 spawnPosition = instantiatePlace.transform.position;
+        spawnPosition.y = 1.0f;
+
         // Create new missle at instantiatePlace
         var missle = Instantiate(
                 misslePrefab,
-                instantiatePlace.transform.position,
+                spawnPosition,
                 Quaternion.FromToRotation(instantiatePlace.transform.position, shootDirection)
             );
 

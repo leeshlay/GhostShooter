@@ -15,20 +15,16 @@
 
         private Animation animation;
 
-        void Start()
+        #region Public Methods
+        public void Start()
         {
             animation = GetComponent<Animation>();
         }
 
-        #region Unity Messages
         private void Update()
         {
             // Create Damage message
-            var message = new Messages.Damage()
-            {
-                // Set data
-                Value = Damage * Time.deltaTime
-            };
+            var message = new Messages.Damage(Damage * Time.deltaTime);
 
             //Debug.Log("Enemy sends damage");
 
@@ -37,12 +33,17 @@
             // Send to nearby objects
             MessageDispatcher.Send(message, objects);
         }
+        #endregion
 
-        private void OnDrawGizmos()
+        #region Unity Messages
+
+        private void handleDamageMissleMessage(Messages.DamageMissle message)
         {
-            // Draw damage inflicting zone
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, Radius);
+            HP -= message.Value;
+            Debug.Log(HP + " " + message.Value);
+            if (HP <= 0) {
+                Destroy(gameObject);
+            }
         }
 
         private void OnCollisionEnter(Collision collision)
