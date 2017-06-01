@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23314577893146916}
   - component: {fileID: 114560820890975656}
   m_Layer: 0
-  m_Name: gift_1
+  m_Name: Bonus
   m_TagString: Pick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,7 +16,7 @@ namespace TGK.Project
             damage = playerObj.getDamage();
         }
 
-        void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.CompareTag("Enemy"))
             {
@@ -27,7 +27,9 @@ namespace TGK.Project
                 //Debug.Log("Send Damge Message from missle");
                 MessageDispatcher.Send(damageMessage, enemy);
             }
-            Destroy(gameObject);
+            if (!other.gameObject.CompareTag("Player")) {
+                Destroy(gameObject);
+            }
         }
     }
 }

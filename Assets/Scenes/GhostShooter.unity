@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1452,28 +1452,6 @@ Prefab:
     - target: {fileID: 1892060147826770, guid: 581e6a99e95d78f49957bb2c4004a006, type: 2}
       propertyPath: m_Name
       value: Wall (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614118568805292, guid: 581e6a99e95d78f49957bb2c4004a006, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614118568805292, guid: 581e6a99e95d78f49957bb2c4004a006, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 23920462924584110, guid: 581e6a99e95d78f49957bb2c4004a006,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8b9595bffe84c0b4bbcc2e09d39186a1, type: 2}
-    - target: {fileID: 1892060147826770, guid: 581e6a99e95d78f49957bb2c4004a006, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 65161844235918458, guid: 581e6a99e95d78f49957bb2c4004a006,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 581e6a99e95d78f49957bb2c4004a006, type: 2}
