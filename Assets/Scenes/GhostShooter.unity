@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1945089666092040, guid: 1393d861e7e34af49b34ffda161ca33e, type: 2}
-  spawnTime: 0.5
+  spawnTime: 5
   radius: 25
 --- !u!4 &217133191
 Transform:
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonus: {fileID: 1000010238139128, guid: cf8c19b412f3d3a47814f36bc49e0477, type: 2}
-  spawnTime: 5
+  spawnTime: 3
   radius: 25
 --- !u!4 &879465564
 Transform:
@@ -1469,6 +1469,11 @@ Prefab:
     - target: {fileID: 1892060147826770, guid: 581e6a99e95d78f49957bb2c4004a006, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 65161844235918458, guid: 581e6a99e95d78f49957bb2c4004a006,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 581e6a99e95d78f49957bb2c4004a006, type: 2}

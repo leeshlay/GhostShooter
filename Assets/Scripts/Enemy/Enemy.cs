@@ -40,7 +40,7 @@
         private void handleDamageMissleMessage(Messages.DamageMissle message)
         {
             HP -= message.Value;
-            Debug.Log(HP + " " + message.Value);
+            //Debug.Log(HP + " " + message.Value);
             if (HP <= 0) {
                 Destroy(gameObject);
             }

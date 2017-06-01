@@ -9,7 +9,8 @@
     {
             
         private BonusType type;
-        private int bonus = 0;
+        private float bonus = 0.0f;
+        private float radius = 120.0f;
 
         // Use this for initialization
         void Start()
@@ -19,13 +20,38 @@
             System.Random random = new System.Random();
             type  = (BonusType)values.GetValue(random.Next(values.Length));
 
+            //type = BonusType.Health;
             //select random bonus
-            bonus = new System.Random().Next(10);
+            bonus = new System.Random().Next(5);
         }
 
         public BonusType getBonusType()
         {
             return type;
+        }
+
+        public void sendBonusMessage(GameObject gameObject)
+        {
+            if(type.Equals(BonusType.Health))
+            {
+                // Find objects to notify
+                //var objects = Utility.OverlapSphere(transform.position, radius);
+
+                Debug.Log("Health bonus");
+                MessageDispatcher.Send(new Messages.HealthBonus(bonus), gameObject);
+            }
+            else if (type.Equals(BonusType.Damage))
+            {
+                Debug.Log("Damage bonus");
+                MessageDispatcher.Send(new Messages.DamageBonus(bonus), gameObject);
+            }
+            else if(type.Equals(BonusType.Speed))
+            {
+                Debug.Log("Speed bonus");
+                MessageDispatcher.Send(new Messages.SpeedBonus(bonus), gameObject);
+            }
+
+            Destroy(this);
         }
     }
 }

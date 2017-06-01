@@ -31,10 +31,33 @@
         #region Bonus
         public class HealthBonus
         {
-            public int Value;
-            public HealthBonus(int value) {
+            public float Value;
+            public HealthBonus(float value) {
                 this.Value = value;
             }
+        }
+
+        public class DamageBonus
+        {
+            public float Value;
+            public DamageBonus(float value)
+            {
+                this.Value = value;
+            }
+        }
+
+        public class SpeedBonus
+        {
+            public float Value;
+            public SpeedBonus(float value)
+            {
+                this.Value = value;
+            }
+        }
+
+        public class EnemySpawnBonus
+        {
+            public float Value = 0.5f;
         }
 
         #endregion Bonus

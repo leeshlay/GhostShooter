@@ -91,18 +91,23 @@
             if (other.gameObject.CompareTag("Pick"))
             {
                 GameObject bonus = other.gameObject;
-                Debug.Log("bonus collected");
                 bonus.SetActive(false);
 
                 //generate bonus message
-                var message = new Messages.HealthBonus(10);
-                Debug.Log("sending health message " + message.Value);
-                //MessageDispatcher.Send(message, );
-
-                Destroy(bonus);
+                other.gameObject.GetComponent<Bonus>().sendBonusMessage(gameObject);
             }
         }
         #endregion Unity Messages
+
+        private void DamageBonus(Messages.DamageBonus message)
+        {
+            damage += message.Value;
+        }
+
+        private void SpeedBonus(Messages.SpeedBonus message)
+        {
+            speed += message.Value;
+        }
 
     }
 }
