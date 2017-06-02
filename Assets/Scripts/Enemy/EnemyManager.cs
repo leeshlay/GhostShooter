@@ -1,36 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class EnemyManager : MonoBehaviour
+﻿namespace TGK.Project
 {
-    [SerializeField]
-    private GameObject enemy; // The enemy prefab to be spawned.
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
 
-    [SerializeField]
-    private float spawnTime = 3f;// How long between each spawn.            
-                                 
-    [SerializeField]
-    private float radius = 10.0f;
-
-    //public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
-
-    void Start()
+    public class EnemyManager : MonoBehaviour
     {
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
-    }
+        [SerializeField]
+        private GameObject enemy; // The enemy prefab to be spawned.
 
-    void Spawn()
-    {
+        [SerializeField]
+        private float spawnTime = 3f;// How long between each spawn.            
 
-        Vector3 spawnArea = Random.insideUnitSphere;
-        spawnArea.y = 0;
-        Instantiate(enemy, spawnArea * radius, Quaternion.identity);
+        [SerializeField]
+        private float radius = 10.0f;
 
-        // Find a random index between zero and one less than the number of spawn points.
-        //int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+        #region Public Methods
+        public void Start()
+        {
+            InvokeRepeating("Spawn", spawnTime, spawnTime);
+        }
 
-        // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
-        //Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+        private void Spawn()
+        {
+
+            Vector3 spawnArea = Random.insideUnitSphere;
+            spawnArea.y = 0;
+            Instantiate(enemy, spawnArea * radius, Quaternion.identity);
+        }
+        #endregion Public Methods
+
+        private void GameOver(Messages.GameOver message)
+        {
+            Debug.Log("stop spawning");
+        }
     }
 }

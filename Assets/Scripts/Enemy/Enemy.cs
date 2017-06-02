@@ -26,8 +26,6 @@
             // Create Damage message
             var message = new Messages.Damage(Damage * Time.deltaTime);
 
-            //Debug.Log("Enemy sends damage");
-
             // Find objects to notify
             var objects = Utility.OverlapSphere(transform.position, Radius);
             // Send to nearby objects
@@ -40,7 +38,6 @@
         private void handleDamageMissleMessage(Messages.DamageMissle message)
         {
             HP -= message.Value;
-            //Debug.Log(HP + " " + message.Value);
             if (HP <= 0) {
                 Destroy(gameObject);
             }
@@ -50,19 +47,9 @@
         {
             if (collision.gameObject.tag == "Player")
             {
-                //Debug.Log("Attack");
                 animation.Play("Attack");
             }
         }
-
-        /*private void OnCollisionExit(Collision collision)
-        {
-            if (collision.gameObject.tag == "Player")
-            {
-                Debug.Log("Walk");
-                animation.CrossFade("Walk");
-            }
-        }*/
 
         #endregion Unity Messages
 

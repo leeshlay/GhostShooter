@@ -60,6 +60,11 @@
             public float Value = 0.5f;
         }
 
+        public class GameOver
+        {
+
+        }
+
         #endregion Bonus
     }
 }

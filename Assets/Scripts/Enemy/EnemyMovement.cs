@@ -10,8 +10,10 @@
 
         private Transform player;
         private NavMeshAgent nav;
+        private bool isOver = false;
 
-        void Awake()
+        #region Public Methods
+        void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
             nav = GetComponent<NavMeshAgent>();
@@ -19,20 +21,18 @@
 
         void Update()
         {
-            nav.SetDestination(player.position);
+            if (!isOver)
+            {
+                nav.SetDestination(player.position);
+            }   
         }
 
-        /*void Update()
-        {
-            Debug.Log("in update");
-            RaycastHit hit;
-            if (Input.GetMouseButtonDown(0))
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit))
-                    nav.SetDestination(hit.point);
+        #endregion Public Methods
 
-            }
-        }*/
+        private void GameOver(Messages.GameOver message)
+        {
+            isOver = true;
+        }
+
     }
 }

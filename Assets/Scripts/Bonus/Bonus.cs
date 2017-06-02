@@ -12,7 +12,6 @@
         private float bonus = 0.0f;
         private float radius = 120.0f;
 
-        // Use this for initialization
         void Start()
         {
             //select random type
@@ -20,7 +19,6 @@
             System.Random random = new System.Random();
             type  = (BonusType)values.GetValue(random.Next(values.Length));
 
-            //type = BonusType.Health;
             //select random bonus
             bonus = new System.Random().Next(5);
         }

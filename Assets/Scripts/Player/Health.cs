@@ -22,7 +22,6 @@
         {
             // Decrease health by damage value
             _Health -= message.Value;
-            //Debug.Log("Health decreased...");
 
             // If the health reaches 0
             if (_Health <= 0.0f)
@@ -32,8 +31,7 @@
                 var animation = gameObject.GetComponent<Animation>();
                 animation.Play("Death1");
 
-                // Notify listeners that we are dead
-               // MessageDispatcher.Send(new Messages.HealthDepleated(), _Receiver);
+                // Notify player that we are dead
                 MessageDispatcher.Send(new Messages.HealthDepleated(), gameObject);
 
                 //destroy
