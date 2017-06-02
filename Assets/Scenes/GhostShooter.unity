@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1945089666092040, guid: 1393d861e7e34af49b34ffda161ca33e, type: 2}
-  spawnTime: 1
+  spawnTime: 3
   radius: 25
 --- !u!4 &217133191
 Transform:
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonus: {fileID: 1000010238139128, guid: cf8c19b412f3d3a47814f36bc49e0477, type: 2}
-  spawnTime: 5
+  spawnTime: 2
   radius: 25
 --- !u!4 &879465564
 Transform:

@@ -92,7 +92,7 @@
                 bonus.SetActive(false);
 
                 //generate bonus message
-                other.gameObject.GetComponent<Bonus>().sendBonusMessage(gameObject);
+                other.gameObject.GetComponent<Bonus>().SendBonusMessage(gameObject);
             }
         }
         #endregion Unity Messages
@@ -102,13 +102,31 @@
         private void DamageBonus(Messages.DamageBonus message)
         {
             damage += message.Value;
+            //inform player
+            float time = 5.0f;
+            StartCoroutine(DisableDamageBonus(message.Value, time));
         }
 
         private void SpeedBonus(Messages.SpeedBonus message)
         {
             speed += message.Value;
+            float time = 5.0f;
+            StartCoroutine(DisableSpeedBonus(message.Value, time));
         }
-        #endregion Bonus Messages
+     
+        IEnumerator DisableDamageBonus(float value, float time)
+        {
+            yield return new WaitForSeconds(time);
 
+            damage -= value;
+        }
+
+        IEnumerator DisableSpeedBonus(float value, float time)
+        {
+            yield return new WaitForSeconds(time);
+            speed -= value;
+        }
+
+        #endregion Bonus Messages
     }
 }

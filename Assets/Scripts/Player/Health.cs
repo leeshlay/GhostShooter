@@ -47,7 +47,6 @@
 
         private void Bonus(Messages.HealthBonus message)
         {
-            Debug.Log(message.Value);
             _Health += message.Value;
         }
 

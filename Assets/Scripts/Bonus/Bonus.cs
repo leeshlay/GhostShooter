@@ -20,7 +20,7 @@
             type  = (BonusType)values.GetValue(random.Next(values.Length));
 
             //select random bonus
-            bonus = new System.Random().Next(5);
+            bonus = new System.Random().Next(4) + 1;
         }
 
         public BonusType getBonusType()
@@ -28,7 +28,7 @@
             return type;
         }
 
-        public void sendBonusMessage(GameObject gameObject)
+        public void SendBonusMessage(GameObject gameObject)
         {
             if(type.Equals(BonusType.Health))
             {
