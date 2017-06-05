@@ -11,6 +11,7 @@
         [SerializeField] private float Radius = 1.0f;
         [SerializeField] private float Damage = 1.0f;
         [SerializeField] private float HP = 10;
+        [SerializeField] private GameVariables _GameVariables;
         #endregion Inspector Variables
 
         private Animation animation;
@@ -39,6 +40,7 @@
         {
             HP -= message.Value;
             if (HP <= 0) {
+                _GameVariables._Score += 1;
                 Destroy(gameObject);
             }
         }

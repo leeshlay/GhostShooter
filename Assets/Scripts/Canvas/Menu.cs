@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour {
 
     public void PlayTheGame() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("GhostShooter");
     }
 
 }

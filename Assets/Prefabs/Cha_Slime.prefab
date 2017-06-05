@@ -247,6 +247,7 @@ MonoBehaviour:
   Radius: 0.7
   Damage: 1
   HP: 10
+  _GameVariables: {fileID: 11400000, guid: fa31a1af7940ed541bd5dcd4c40ef0b8, type: 2}
 --- !u!135 &135101089864872062
 SphereCollider:
   m_ObjectHideFlags: 1
