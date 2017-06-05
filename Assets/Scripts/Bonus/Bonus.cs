@@ -7,7 +7,6 @@
 
     public class Bonus : MonoBehaviour
     {
-            
         private BonusType type;
         private float bonus = 0.0f;
         private float radius = 120.0f;
@@ -48,7 +47,6 @@
                 Debug.Log("Speed bonus");
                 MessageDispatcher.Send(new Messages.SpeedBonus(bonus), gameObject);
             }
-
             Destroy(this);
         }
     }

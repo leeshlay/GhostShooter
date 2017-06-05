@@ -29,14 +29,16 @@
 
         #endregion Inspector Variables
 
-        private void Start()
+
+        #region Public Methods 
+        public void Start()
         {
             animation = GetComponent<Animation> ();
             animation.Play("Idle1");
             controller = GetComponent<CharacterController>();
         }
 
-        void Update()
+        public void Update()
         {
             if (isDead)
             {
@@ -68,20 +70,25 @@
             }
         }
 
+        public float getDamage() { return damage; }
+        #endregion
+        
+        #region Private Methods 
+
         private void Die()
         {
             _GameVariables._GameOver = true;
             gameObject.SetActive(false);
             SceneManager.LoadScene("Menu");
-
+            Cursor.visible = true;
         }
 
         private void Death(Messages.HealthDepleated message)
         {
             isDead = true;
         }
+        #endregion
 
-        public float getDamage() { return damage; }
 
         #region Unity Messages
         void OnTriggerEnter(Collider other)

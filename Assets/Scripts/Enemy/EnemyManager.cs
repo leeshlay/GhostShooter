@@ -19,7 +19,7 @@
         #region Public Methods
         public void Start()
         {
-            InvokeRepeating("Spawn", spawnTime, spawnTime);
+            Invoke("Spawn", spawnTime);
         }
 
         private void Spawn()
@@ -27,6 +27,8 @@
             Vector3 spawnArea = Random.insideUnitSphere;
             spawnArea.y = 0;
             Instantiate(enemy, spawnArea * radius, Quaternion.identity);
+            spawnTime *= 0.999f;
+            Invoke("Spawn", spawnTime);
         }
         #endregion Public Methods
     }

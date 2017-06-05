@@ -14,6 +14,9 @@ public class MissleShooter : MonoBehaviour {
     [SerializeField]
     private float missleSpeed = 5.0f;
 
+    [SerializeField]
+    private AudioSource shotAudioSource;
+
     public void Shoot(Vector3 shootDirection) {
 
         Vector3 spawnPosition = instantiatePlace.transform.position;
@@ -30,6 +33,7 @@ public class MissleShooter : MonoBehaviour {
         Rigidbody missleRigidbody = missle.GetComponent<Rigidbody>();
         missleRigidbody.velocity = shootDirection.normalized * missleSpeed;
 
+        shotAudioSource.Play();
     }
 
 
