@@ -12,6 +12,8 @@
         // The component to send messages to
         [SerializeField] private GameObject _Receiver;
         [SerializeField] private float _Health;
+        [SerializeField]
+        private BonusTimer _BonusTimer;
         #endregion Inspector Variables
 
         #region Private Methods
@@ -40,6 +42,7 @@
         private void Bonus(Messages.HealthBonus message)
         {
             _Health += message.Value;
+            _BonusTimer.AddBonusTimerText("Health Bonus");
         }
 
         #endregion Private Methods

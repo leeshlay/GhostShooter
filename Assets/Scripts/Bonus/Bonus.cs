@@ -34,17 +34,17 @@
                 // Find objects to notify
                 //var objects = Utility.OverlapSphere(transform.position, radius);
 
-                Debug.Log("Health bonus");
+                //Debug.Log("Health bonus");
                 MessageDispatcher.Send(new Messages.HealthBonus(bonus), gameObject);
             }
             else if (type.Equals(BonusType.Damage))
             {
-                Debug.Log("Damage bonus");
+                //Debug.Log("Damage bonus");
                 MessageDispatcher.Send(new Messages.DamageBonus(bonus), gameObject);
             }
             else if(type.Equals(BonusType.Speed))
             {
-                Debug.Log("Speed bonus");
+                //Debug.Log("Speed bonus");
                 MessageDispatcher.Send(new Messages.SpeedBonus(bonus), gameObject);
             }
             Destroy(this);

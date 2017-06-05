@@ -17,7 +17,12 @@
 
         [SerializeField]
         private float speed = 2.5f;
-        [SerializeField] private GameVariables _GameVariables;
+
+        [SerializeField]
+        private GameVariables _GameVariables;
+
+        [SerializeField]
+        private BonusTimer _BonusTimer;
 
         private Vector3 moveDirection = Vector3.zero;
         private float gravity = 10.0f;
@@ -26,6 +31,7 @@
         private CharacterController controller;
 
         private bool isDead = false;
+        
 
         #endregion Inspector Variables
 
@@ -109,8 +115,9 @@
         private void DamageBonus(Messages.DamageBonus message)
         {
             damage += message.Value;
-            //inform player
             float time = 5.0f;
+            //set timer
+            _BonusTimer.AddBonusTimerText("Damage Bonus");
             StartCoroutine(DisableDamageBonus(message.Value, time));
         }
 
@@ -118,6 +125,7 @@
         {
             speed += message.Value;
             float time = 5.0f;
+            _BonusTimer.AddBonusTimerText("Speed Bonus");
             StartCoroutine(DisableSpeedBonus(message.Value, time));
         }
      
