@@ -3,6 +3,7 @@
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
+    using UnityEngine.SceneManagement;
 
     public class Player : MonoBehaviour
     {
@@ -16,6 +17,7 @@
 
         [SerializeField]
         private float speed = 2.5f;
+        [SerializeField] private GameVariables _GameVariables;
 
         private Vector3 moveDirection = Vector3.zero;
         private float gravity = 10.0f;
@@ -68,12 +70,10 @@
 
         private void Die()
         {
-            //notify enemies that we are dead
-            var objects = Utility.OverlapSphere(transform.position, 100);
-            MessageDispatcher.Send(new Messages.GameOver(), objects);
-
+            _GameVariables._GameOver = true;
             gameObject.SetActive(false);
-            
+            SceneManager.LoadScene("Menu");
+
         }
 
         private void Death(Messages.HealthDepleated message)

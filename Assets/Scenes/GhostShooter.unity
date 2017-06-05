@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonus: {fileID: 1000010238139128, guid: cf8c19b412f3d3a47814f36bc49e0477, type: 2}
-  spawnTime: 2
+  spawnTime: 42
   radius: 25
 --- !u!4 &879465564
 Transform:
@@ -1066,6 +1066,18 @@ Prefab:
       propertyPath: _Health
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114240735484094472, guid: 7797b40a8188f0b4b80eafd16a709f11,
+        type: 2}
+      propertyPath: _GameVariables
+      value: 
+      objectReference: {fileID: 11400000, guid: fa31a1af7940ed541bd5dcd4c40ef0b8,
+        type: 2}
+    - target: {fileID: 114302736069951952, guid: 7797b40a8188f0b4b80eafd16a709f11,
+        type: 2}
+      propertyPath: _GameVariables
+      value: 
+      objectReference: {fileID: 11400000, guid: fa31a1af7940ed541bd5dcd4c40ef0b8,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7797b40a8188f0b4b80eafd16a709f11, type: 2}
   m_IsPrefabParent: 0

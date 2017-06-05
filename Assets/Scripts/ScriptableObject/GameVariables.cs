@@ -6,5 +6,6 @@ using UnityEngine;
 public class GameVariables : ScriptableObject {
 
     public int _Score = 0;
+    public bool _GameOver = false;
 
 }

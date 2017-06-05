@@ -15,6 +15,7 @@
         [SerializeField]
         private float radius = 10.0f;
 
+
         #region Public Methods
         public void Start()
         {
@@ -23,16 +24,10 @@
 
         private void Spawn()
         {
-
             Vector3 spawnArea = Random.insideUnitSphere;
             spawnArea.y = 0;
             Instantiate(enemy, spawnArea * radius, Quaternion.identity);
         }
         #endregion Public Methods
-
-        private void GameOver(Messages.GameOver message)
-        {
-            Debug.Log("stop spawning");
-        }
     }
 }

@@ -20,7 +20,8 @@
 
         private void Update()
         {
-            _text.text = "HP " + _health.getHealth().ToString("F2");
+            var hp = _health.getHealth() <= 0 ? 0.0 : _health.getHealth();
+            _text.text = "HP " + hp.ToString("F2");
         }
 
     }

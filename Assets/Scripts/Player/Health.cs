@@ -34,15 +34,7 @@
                 // Notify player that we are dead
                 MessageDispatcher.Send(new Messages.HealthDepleated(), gameObject);
 
-                //destroy
-                Invoke("Die", 2.4f);
-
             }
-        }
-
-        private void Die()
-        {
-            gameObject.SetActive(false);
         }
 
         private void Bonus(Messages.HealthBonus message)

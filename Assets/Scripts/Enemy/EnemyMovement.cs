@@ -10,29 +10,28 @@
 
         private Transform player;
         private NavMeshAgent nav;
-        private bool isOver = false;
+        [SerializeField] private GameVariables _GameVariables;
 
         #region Public Methods
         void Start()
         {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-            nav = GetComponent<NavMeshAgent>();
+            if (!_GameVariables._GameOver)
+            {
+                player = GameObject.FindGameObjectWithTag("Player").transform;
+                nav = GetComponent<NavMeshAgent>();
+            }
+                
         }
 
         void Update()
         {
-            if (!isOver)
+            if (!_GameVariables._GameOver)
             {
                 nav.SetDestination(player.position);
             }   
         }
 
         #endregion Public Methods
-
-        private void GameOver(Messages.GameOver message)
-        {
-            isOver = true;
-        }
 
     }
 }
