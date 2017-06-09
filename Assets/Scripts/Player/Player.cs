@@ -116,7 +116,6 @@
         {
             damage += message.Value;
             float time = 5.0f;
-            //set timer
             _BonusTimer.AddBonusTimerText("Damage Bonus");
             StartCoroutine(DisableDamageBonus(message.Value, time));
         }
@@ -132,7 +131,6 @@
         IEnumerator DisableDamageBonus(float value, float time)
         {
             yield return new WaitForSeconds(time);
-
             damage -= value;
         }
 
