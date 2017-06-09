@@ -7,28 +7,28 @@
     public class EnemyManager : MonoBehaviour
     {
         [SerializeField]
-        private GameObject enemy; // The enemy prefab to be spawned.
+        private GameObject _Enemy;
 
         [SerializeField]
-        private float spawnTime = 3f;// How long between each spawn.            
+        private float _SpawnTime = 3f;           
 
         [SerializeField]
-        private float radius = 10.0f;
+        private float _Radius = 10.0f;
 
 
         #region Public Methods
         public void Start()
         {
-            Invoke("Spawn", spawnTime);
+            Invoke("Spawn", _SpawnTime);
         }
 
         private void Spawn()
         {
             Vector3 spawnArea = Random.insideUnitSphere;
             spawnArea.y = 0;
-            Instantiate(enemy, spawnArea * radius, Quaternion.identity);
-            spawnTime *= 0.999f;
-            Invoke("Spawn", spawnTime);
+            Instantiate(_Enemy, spawnArea * _Radius, Quaternion.identity);
+            _SpawnTime *= 0.999f;
+            Invoke("Spawn", _SpawnTime);
         }
         #endregion Public Methods
     }

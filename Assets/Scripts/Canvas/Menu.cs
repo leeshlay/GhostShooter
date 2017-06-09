@@ -1,27 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿namespace TGK.Project
+{
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
 
-public class Menu : MonoBehaviour {
-
-    [SerializeField]
-    private GameVariables _gameVariables;
-
-    public void OnLevelWasLoaded(int level)
+    public class Menu : MonoBehaviour
     {
-        
-        if (_gameVariables._BestScore < _gameVariables._Score)
+
+        [SerializeField]
+        private GameVariables _GameVariables;
+
+        public void OnLevelWasLoaded(int level)
         {
-            _gameVariables._BestScore = _gameVariables._Score;
+
+            if (_GameVariables._BestScore < _GameVariables._Score)
+            {
+                _GameVariables._BestScore = _GameVariables._Score;
+            }
         }
-       
-    }
 
-    public void PlayTheGame() {
-        _gameVariables._Score = 0;
-        _gameVariables._GameOver = false;
-        SceneManager.LoadScene("GhostShooter");
+        public void PlayTheGame()
+        {
+            _GameVariables._Score = 0;
+            _GameVariables._GameOver = false;
+            SceneManager.LoadScene("GhostShooter");
+        }
     }
-
 }

@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b9b2e61b43a14469bd251c3a3b43a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1945089666092040, guid: 1393d861e7e34af49b34ffda161ca33e, type: 2}
-  spawnTime: 1
-  radius: 25
+  _Enemy: {fileID: 1945089666092040, guid: 1393d861e7e34af49b34ffda161ca33e, type: 2}
+  _SpawnTime: 1
+  _Radius: 10
 --- !u!4 &217133191
 Transform:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8ed203a726a964f88a24b3128911bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1197724270}
+  _Player: {fileID: 1197724270}
 --- !u!82 &232265019
 AudioSource:
   m_ObjectHideFlags: 0
@@ -490,8 +490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1bd229000283d499ae8e933077f7d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missleShooter: {fileID: 940053425}
-  player: {fileID: 1197724270}
+  _MissleShooter: {fileID: 940053425}
+  _Player: {fileID: 1197724270}
 --- !u!1001 &367370518
 Prefab:
   m_ObjectHideFlags: 0
@@ -686,11 +686,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 505084477}
---- !u!1 &573520406 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1095246840498766, guid: 7797b40a8188f0b4b80eafd16a709f11,
-    type: 2}
-  m_PrefabInternal: {fileID: 1347918942}
 --- !u!1 &646406213
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,9 +858,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43007cc3f49e8a4c99e1106a2558c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonus: {fileID: 1000010238139128, guid: cf8c19b412f3d3a47814f36bc49e0477, type: 2}
-  spawnTime: 3
-  radius: 25
+  _Bonus: {fileID: 1000010238139128, guid: cf8c19b412f3d3a47814f36bc49e0477, type: 2}
+  _SpawnTime: 5
+  _Radius: 10
 --- !u!4 &879465564
 Transform:
   m_ObjectHideFlags: 0
@@ -982,10 +977,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43b628630eaf9a4cb560ff06e6cf135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  misslePrefab: {fileID: 1662317069031272, guid: 1064c5d1793b3a246b454f6d3acbeba1,
+  _MisslePrefab: {fileID: 1662317069031272, guid: 1064c5d1793b3a246b454f6d3acbeba1,
     type: 2}
-  instantiatePlace: {fileID: 573520406}
-  missleSpeed: 10
+  _InstantiatePlace: {fileID: 1347918943}
+  _MissleSpeed: 10
   shotAudioSource: {fileID: 646406215}
 --- !u!1001 &1131334145
 Prefab:
@@ -1390,9 +1385,19 @@ Prefab:
       propertyPath: _BonusTimer
       value: 
       objectReference: {fileID: 505084479}
+    - target: {fileID: 114302736069951952, guid: 7797b40a8188f0b4b80eafd16a709f11,
+        type: 2}
+      propertyPath: _Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7797b40a8188f0b4b80eafd16a709f11, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1347918943 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1095246840498766, guid: 7797b40a8188f0b4b80eafd16a709f11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1347918942}
 --- !u!1 &1444610171
 GameObject:
   m_ObjectHideFlags: 0

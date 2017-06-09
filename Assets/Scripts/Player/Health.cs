@@ -2,24 +2,16 @@
 {
     using UnityEngine;
 
-    /// <summary>
-    /// Handles damage receiving,
-    /// informs _Receiver about death
-    /// </summary>
     public class Health : MonoBehaviour
     {
         #region Inspector Variables
-        // The component to send messages to
-        [SerializeField] private GameObject _Receiver;
+
         [SerializeField] private float _Health;
-        [SerializeField]
-        private BonusTimer _BonusTimer;
+        [SerializeField] private BonusTimer _BonusTimer;
         #endregion Inspector Variables
 
         #region Private Methods
-        /// <summary>
-        /// Reacts to Damage message
-        /// </summary>
+
         private void Damage(Messages.Damage message)
         {
             // Decrease health by damage value

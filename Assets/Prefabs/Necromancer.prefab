@@ -1034,7 +1034,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1009514257702156}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.071501054, z: -0, w: 0.9974405}
   m_LocalPosition: {x: -0.44, y: 0.5, z: 0.02}
   m_LocalScale: {x: 0.6310487, y: 0.63104874, z: 0.63104874}
   m_Children:
@@ -1490,8 +1490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89087029e65ff5c469ddb0f36f44bf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Receiver: {fileID: 0}
   _Health: 3
+  _BonusTimer: {fileID: 0}
 --- !u!114 &114302736069951952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1504,8 +1504,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Radius: 1
-  damage: 10
-  speed: 4
+  _Damage: 10
+  _Speed: 2.5
+  _GameVariables: {fileID: 0}
+  _BonusTimer: {fileID: 0}
 --- !u!136 &136218667615068066
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -8,20 +8,20 @@
     public class HPText : MonoBehaviour
     {
 
-        private Health _health;
+        private Health _Health;
 
-        private Text _text;
+        private Text _Text;
 
         private void Awake()
         {
-            _text = GetComponent<Text>();
-            _health = FindObjectOfType(typeof(Health)) as Health;
+            _Text = GetComponent<Text>();
+            _Health = FindObjectOfType(typeof(Health)) as Health;
         }
 
         private void Update()
         {
-            var hp = _health.getHealth() <= 0 ? 0.0 : _health.getHealth();
-            _text.text = "HP " + hp.ToString("F2");
+            var hp = _Health.getHealth() <= 0 ? 0.0 : _Health.getHealth();
+            _Text.text = "HP " + hp.ToString("F2");
         }
 
     }

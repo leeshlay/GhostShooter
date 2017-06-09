@@ -54,17 +54,6 @@
                 this.Value = value;
             }
         }
-
-        public class EnemySpawnBonus
-        {
-            public float Value = 0.5f;
-        }
-
-        public class GameOver
-        {
-
-        }
-
         #endregion Bonus
     }
 }

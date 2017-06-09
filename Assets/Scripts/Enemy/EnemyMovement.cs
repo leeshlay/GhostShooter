@@ -8,8 +8,8 @@
     public class EnemyMovement : MonoBehaviour
     {
 
-        private Transform player;
-        private NavMeshAgent nav;
+        private Transform _Player;
+        private NavMeshAgent _Nav;
         [SerializeField] private GameVariables _GameVariables;
 
         #region Public Methods
@@ -17,8 +17,8 @@
         {
             if (!_GameVariables._GameOver)
             {
-                player = GameObject.FindGameObjectWithTag("Player").transform;
-                nav = GetComponent<NavMeshAgent>();
+                _Player = GameObject.FindGameObjectWithTag("Player").transform;
+                _Nav = GetComponent<NavMeshAgent>();
             }
                 
         }
@@ -27,7 +27,7 @@
         {
             if (!_GameVariables._GameOver)
             {
-                nav.SetDestination(player.position);
+                _Nav.SetDestination(_Player.position);
             }   
         }
 

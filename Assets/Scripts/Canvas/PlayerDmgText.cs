@@ -8,19 +8,19 @@
     public class PlayerDmgText : MonoBehaviour
     {
 
-        private Player player;
+        private Player _Player;
 
-        private Text text;
+        private Text _Text;
 
         private void Awake()
         {
-            text = GetComponent<Text>();
-            player = FindObjectOfType(typeof(Player)) as Player;
+            _Text = GetComponent<Text>();
+            _Player = FindObjectOfType(typeof(Player)) as Player;
         }
 
         private void Update()
         {
-            text.text = "DMG  " + player.getDamage();
+            _Text.text = "DMG  " + _Player.getDamage();
         }
     }
 }

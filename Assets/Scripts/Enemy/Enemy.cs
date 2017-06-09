@@ -8,27 +8,27 @@
     {
 
         #region Inspector Variables
-        [SerializeField] private float Radius = 1.0f;
-        [SerializeField] private float Damage = 1.0f;
-        [SerializeField] private float HP = 10;
+        [SerializeField] private float _Radius = 1.0f;
+        [SerializeField] private float _Damage = 1.0f;
+        [SerializeField] private float _HP = 10;
         [SerializeField] private GameVariables _GameVariables;
         #endregion Inspector Variables
 
-        private Animation animation;
+        private Animation _Animation;
 
         #region Public Methods
         public void Start()
         {
-            animation = GetComponent<Animation>();
+            _Animation = GetComponent<Animation>();
         }
 
         private void Update()
         {
             // Create Damage message
-            var message = new Messages.Damage(Damage * Time.deltaTime);
+            var message = new Messages.Damage(_Damage * Time.deltaTime);
 
             // Find objects to notify
-            var objects = Utility.OverlapSphere(transform.position, Radius);
+            var objects = Utility.OverlapSphere(transform.position, _Radius);
             // Send to nearby objects
             MessageDispatcher.Send(message, objects);
         }
@@ -38,8 +38,8 @@
 
         private void handleDamageMissleMessage(Messages.DamageMissle message)
         {
-            HP -= message.Value;
-            if (HP <= 0) {
+            _HP -= message.Value;
+            if (_HP <= 0) {
                 _GameVariables._Score += 1;
                 Destroy(gameObject);
             }
@@ -49,7 +49,7 @@
         {
             if (collision.gameObject.tag == "Player")
             {
-                animation.Play("Attack");
+                _Animation.Play("Attack");
             }
         }
 

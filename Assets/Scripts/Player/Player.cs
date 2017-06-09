@@ -13,10 +13,10 @@
         [SerializeField]
         private float _Radius = 1.0f;
         [SerializeField]
-        private float damage = 10.0f;
+        private float _Damage = 10.0f;
 
         [SerializeField]
-        private float speed = 2.5f;
+        private float _Speed = 2.5f;
 
         [SerializeField]
         private GameVariables _GameVariables;
@@ -24,13 +24,13 @@
         [SerializeField]
         private BonusTimer _BonusTimer;
 
-        private Vector3 moveDirection = Vector3.zero;
-        private float gravity = 10.0f;
+        private Vector3 _MoveDirection = Vector3.zero;
+        private float _Gravity = 10.0f;
 
-        private Animation animation;
-        private CharacterController controller;
+        private Animation _Animation;
+        private CharacterController _Controller;
 
-        private bool isDead = false;
+        private bool _IsDead = false;
         
 
         #endregion Inspector Variables
@@ -39,44 +39,43 @@
         #region Public Methods 
         public void Start()
         {
-            animation = GetComponent<Animation> ();
-            animation.Play("Idle1");
-            controller = GetComponent<CharacterController>();
+            _Animation = GetComponent<Animation> ();
+            _Animation.Play("Idle1");
+            _Controller = GetComponent<CharacterController>();
         }
 
         public void Update()
         {
-            if (isDead)
+            if (_IsDead)
             {
-                controller.enabled = false;
-                //disable shooting
-                animation.Play("Death1");
+                _Controller.enabled = false;
+                _Animation.Play("Death1");
                 Invoke("Die", 2.4f);
             }
             else
             {
-                if (controller.isGrounded)
+                if (_Controller.isGrounded)
                 {
-                    moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                    _MoveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
                     // moveDirection = transform.TransformDirection(moveDirection);
-                    moveDirection *= speed;
+                    _MoveDirection *= _Speed;
                 }
-                moveDirection.y -= gravity * Time.deltaTime;
-                controller.Move(moveDirection * Time.deltaTime);
+                _MoveDirection.y -= _Gravity * Time.deltaTime;
+                _Controller.Move(_MoveDirection * Time.deltaTime);
 
                 //animation for moving
                 if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
                 {
-                    animation.Play("Walk");
+                    _Animation.Play("Walk");
                 }
                 else if (Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d"))
                 {
-                    animation.Play("Idle1");
+                    _Animation.Play("Idle1");
                 }
             }
         }
 
-        public float getDamage() { return damage; }
+        public float getDamage() { return _Damage; }
         #endregion
         
         #region Private Methods 
@@ -91,7 +90,7 @@
 
         private void Death(Messages.HealthDepleated message)
         {
-            isDead = true;
+            _IsDead = true;
         }
         #endregion
 
@@ -114,7 +113,7 @@
 
         private void DamageBonus(Messages.DamageBonus message)
         {
-            damage += message.Value;
+            _Damage += message.Value;
             float time = 5.0f;
             _BonusTimer.AddBonusTimerText("Damage Bonus");
             StartCoroutine(DisableDamageBonus(message.Value, time));
@@ -122,7 +121,7 @@
 
         private void SpeedBonus(Messages.SpeedBonus message)
         {
-            speed += message.Value;
+            _Speed += message.Value;
             float time = 5.0f;
             _BonusTimer.AddBonusTimerText("Speed Bonus");
             StartCoroutine(DisableSpeedBonus(message.Value, time));
@@ -131,13 +130,13 @@
         IEnumerator DisableDamageBonus(float value, float time)
         {
             yield return new WaitForSeconds(time);
-            damage -= value;
+            _Damage -= value;
         }
 
         IEnumerator DisableSpeedBonus(float value, float time)
         {
             yield return new WaitForSeconds(time);
-            speed -= value;
+            _Speed -= value;
         }
 
         #endregion Bonus Messages

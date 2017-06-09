@@ -8,18 +8,18 @@
     {
 
         [SerializeField]
-        private GameObject player;
+        private GameObject _Player;
 
-        private Vector3 offsetFromPlayer;
+        private Vector3 _OffsetFromPlayer;
 
         void Start()
         {
-            offsetFromPlayer = transform.position - player.transform.position;
+            _OffsetFromPlayer = transform.position - _Player.transform.position;
         }
 
         void LateUpdate()
         {
-            transform.position = player.transform.position + offsetFromPlayer;
+            transform.position = _Player.transform.position + _OffsetFromPlayer;
         }
     }
 }
